@@ -2,9 +2,9 @@ body {
   background-color: rgb(20, 20, 20);
   color: white;
   max-width: 100%;
-  margin: 0 auto 0 auto;
+  margin: 0 auto;
   padding: 0 1rem;
-  font-family: 'montserrat', sans-serif;
+  font-family: 'M PLUS Code Latin', sans-serif;
   line-height: 1.6em;
   margin: 0;
 }
@@ -16,7 +16,6 @@ nav ul {
   display: flex;
 }
 
-
 .container {
   margin-left: -2rem;
   padding-top: 0rem;
@@ -25,11 +24,11 @@ nav ul {
   text-decoration: none;
   color: white;
   background-color: #000000;
-
 }
 
-
-.container {
+.container,
+.container ul li a:not(:first-child),
+.container ul li:first-child {
   margin: 0;
   align-items: center;
 }
@@ -51,7 +50,6 @@ nav ul {
 
 .container ul li img:first-child {
   margin-right: auto;
-
 }
 
 .container ul li a:hover,
@@ -64,36 +62,47 @@ img {
   margin-right: auto;
 }
 
-.product ul{
+.product ul {
   display: flex;
-  gap :2rem;
+  justify-content: flex-start;
+  gap: 3rem;
   list-style: none;
-  margin:0;
-  padding:0;
-  flex: 1 0 30%;
+  margin: 0;
+  padding: 0;
   flex-wrap: wrap;
 }
-.product ul li{
+
+.product ul li {
   box-shadow: 0 0 1rem #222222;
   flex-direction: column-reverse;
   background-color: #222222;
   position: relative;
-  
+  min-width: 20%;
 }
-.product ul li .content{
+
+.product ul li .content {
   display: flex;
   flex-direction: column-reverse;
   padding: 2rem;
 }
 
-.product ul li .link{
+.product ul li .link {
   text-decoration: none;
-  padding : 1rem;
+  padding: 1rem;
   border-radius: 1rem;
   background-color: rgb(133, 19, 14);
+  color: #fffdff;
+  z-index: 2;
 }
 
-.product ul li div a.overlaylink{
+.product ul li div a.link:hover,
+.product ul li div a.link:focus-visible {
+  background-color: #fffdff;
+  color: rgb(133, 19, 14);
+}
+
+.product ul li div a.overlaylink {
+  z-index: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -106,8 +115,43 @@ img {
   white-space: nowrap;
 }
 
-
-.product ul li img{
+.product ul li img {
   max-width: 12rem;
   height: 12rem;
+}
+
+/* Media Queries for Responsiveness */
+
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0 0.5rem;
+  }
+
+  .container {
+    margin-left: 0;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  body {
+    font-size: 0.9em;
+  }
+
+  .product ul {
+    justify-content: center;
+  }
+
+  .product ul li {
+    min-width: 100%;
+  }
+
+  .product ul li .content {
+    padding: 1rem;
+  }
+
+  .product ul li img {
+    max-width: 100%;
+    height: auto;
+  }
 }
